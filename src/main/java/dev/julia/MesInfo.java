@@ -5,34 +5,30 @@ package dev.julia;
 public class MesInfo {
 
     public static String obtenerNombreDelMes(int numeroDeMes) {
-        switch (numeroDeMes) {
-            case 1: return "Enero";
-            case 2: return "Febrero";
-            case 3: return "Marzo";
-            case 4: return "Abril";
-            case 5: return "Mayo";
-            case 6: return "Junio";
-            case 7: return "Julio";
-            case 8: return "Agosto";
-            case 9: return "Septiembre";
-            case 10: return "Octubre";
-            case 11: return "Noviembre";
-            case 12: return "Diciembre";
-            default: return "Mes inválido";
-        }
+        return switch (numeroDeMes) {
+            case 1 -> "Enero";
+            case 2 -> "Febrero";
+            case 3 -> "Marzo";
+            case 4 -> "Abril";
+            case 5 -> "Mayo";
+            case 6 -> "Junio";
+            case 7 -> "Julio";
+            case 8 -> "Agosto";
+            case 9 -> "Septiembre";
+            case 10 -> "Octubre";
+            case 11 -> "Noviembre";
+            case 12 -> "Diciembre";
+            default -> "Mes inválido";
+        };
     }
 
     public static int obtenerDiasDelMes(int numeroDeMes) {
-        switch (numeroDeMes) {
-            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
-                return 31;
-            case 4: case 6: case 9: case 11:
-                return 30;
-            case 2:
-                return 28; 
-            default:
-                return -1; 
-        }
+        return switch (numeroDeMes) {
+            case 1, 3, 5, 7, 8, 10, 12 -> 31;
+            case 4, 6, 9, 11 -> 30;
+            case 2 -> 28;
+            default -> -1;
+        };
     }
 
     public static void main(String[] args) {
